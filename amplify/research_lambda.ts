@@ -1,3 +1,3 @@
 export const handler = () => {
-  return process.env;
+  return process.env.DB_CONNECTION;
 }

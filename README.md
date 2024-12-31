@@ -8,21 +8,44 @@ I am using amplify for separated client apps like Flutter, React Native, Android
 That's why in this project just have single html file, this file for fullfill the requirement of amplify.
 
 > WARNING - this process bellow will be create:
->  - AWS Rules
+>  - AWS Roles
 >  - AWS Policies
 >  - AWS S3
 >  - AWS cloudFormation
 >  - AWS Lambda
 >  - AWS Amplify
 >  - AWS Cloudwatch
+> 
+> PLEASE BE CAREFULLY WHEN YOU DEPLOY THIS PROJECT MULTIPLE TIMES,
+> BECAUSE IT WILL CREATE MULTIPLE Roles, Policies, and Cloudwatch.
+> MAKE SURE YOU DELETE IT WHEN YOU DELETE AMPLIFY PROJECT.
 
-## Step 0 - Prerequisite
+# How to use
+## - Prerequisite
 - Fork this repo
 
-## Step 1 - Create Amplify Project
+## Create Amplify Project
 - open aws console, then go to amplify
 - click "Deploy an app" button
   this readme created at 2024-12-30, so the button maybe different
 - choose "Github" then connect to your repository
-- choose repository and branch
-- 
+- choose repository and branch, then click "Next"
+- if you use this project, you don't need to change anything on "App Settings" page, just click "Next" button
+- click "Save and Deploy" button
+
+
+# Explanation:
+- this research code has 2 main parts, all parts writen on `amplify/backend.ts` file.
+- first create CDK stack from amplify backend
+  ```
+    const backend = defineBackend({
+    });
+
+    const backendStack = backend.createStack('researchCDKonAmplify');
+
+  ```
+- second, create appsync from CDK stack
+
+
+
+
