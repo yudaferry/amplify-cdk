@@ -1,8 +1,0 @@
-
-type Response {
-  message: String
-}
-
-type Query {
-  test(parameter: String): Response
-}
