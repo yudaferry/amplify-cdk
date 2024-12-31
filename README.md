@@ -23,4 +23,6 @@ That's why in this project just have single html file, this file for fullfill th
 - open aws console, then go to amplify
 - click "Deploy an app" button
   this readme created at 2024-12-30, so the button maybe different
-- choose "Github" 
+- choose "Github" then connect to your repository
+- choose repository and branch
+- 

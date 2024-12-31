@@ -3,7 +3,7 @@ import { defineBackend, secret } from '@aws-amplify/backend';
 import * as nodejs from "aws-cdk-lib/aws-lambda-nodejs";
 import * as lambda from "aws-cdk-lib/aws-lambda";
 console.log("========== process.argv ==========");
-console.log(process.argv);
+console.log(process.env.NODE_ENV);
 
 const backend = defineBackend({
 });
