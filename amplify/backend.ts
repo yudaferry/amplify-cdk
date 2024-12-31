@@ -14,13 +14,6 @@ const backend = defineBackend({
 
 const backendStack = backend.createStack('research');
 
-const api = new appsync.GraphqlApi(backendStack, `APS_${branch}`, {
-  name: `APS_${branch}`,
-  definition: appsync.Definition.fromSchema(
-    appsync.SchemaFile.fromAsset("amplify/schema.graphql") // graphql schema
-  )
-});
-
 const test = new nodejs.NodejsFunction(backendStack, `lambda_${branch}`, {
   runtime: lambda.Runtime.NODEJS_20_X,
   entry: 'amplify/lambda.ts',
@@ -28,6 +21,13 @@ const test = new nodejs.NodejsFunction(backendStack, `lambda_${branch}`, {
   environment: {
     DB_CONNECTION: process.env.DB_CONNECTION as string | '',
   }
+});
+
+const api = new appsync.GraphqlApi(backendStack, `APS_${branch}`, {
+  name: `APS_${branch}`,
+  definition: appsync.Definition.fromSchema(
+    appsync.SchemaFile.fromAsset("amplify/schema.graphql") // graphql schema
+  )
 });
 
 const datasource = api.addLambdaDataSource(`lambda_${branch}`, test);
