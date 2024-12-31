@@ -1,3 +1,8 @@
+
+type Response {
+  message: String
+}
+
 type Query {
-  test(parameter: String): String
+  test(parameter: String): Response
 }
