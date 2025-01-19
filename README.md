@@ -109,7 +109,7 @@ That's why in this project just have single html file, this file for fullfill th
 # Useful information
 
 - amplify has some useful env variable, you can access it with `process.env`
-  > AWS_BRANCH
+  > AWS_BRANCH\
   > AWS_DEFAULT_REGION
   > AWS_REGION 
   > AWS_APP_ID 
